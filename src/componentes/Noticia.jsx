@@ -5,6 +5,12 @@ function Noticia() {
   // hook das noticias
   const [noticia, setNoticia] = useState(null);
 
+  // pra atualizar noticias individualmente
+  // não sei se tinha outra forma, mas funcionou!
+  const [atualizar,Atualizador] = useState(null)
+
+
+  
   // useEffect que dá request pras "noticias"
   useEffect(() => {
 
@@ -25,7 +31,7 @@ function Noticia() {
     // timer pra mudar as noticias a cada 30 segundos
     const timerId = setInterval(() => {
         mudarNoticia();
-    }, 3000);
+    }, 10000);
 
 
     // sempre que desmontar: resetar
@@ -34,8 +40,18 @@ function Noticia() {
     return() => {
         setNoticia(null)
         clearInterval(timerId)
+        mudarNoticia()
     }
-  }, []);
+  }, [atualizar]);
+
+
+
+  // atualizando noticias individualmente
+  const atualizarNoticia = () => {
+    Atualizador(prev => prev + 1)
+  }
+
+
 
   return (
     <div>
@@ -48,6 +64,8 @@ function Noticia() {
       ) : (
         <h2>Sem noticia</h2>
       )}
+
+      <button onClick={atualizarNoticia}>Atualizar a noticia</button>
     </div>
   );
 }
