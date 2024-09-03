@@ -31,7 +31,7 @@ function Noticia() {
     // timer pra mudar as noticias a cada 30 segundos
     const timerId = setInterval(() => {
       mudarNoticia();
-    }, 10000);
+    }, 30000);
 
     // sempre que desmontar: resetar
     // as noticias e o timer
@@ -44,7 +44,7 @@ function Noticia() {
   }, [atualizar]);
 
 
-  
+
   // atualizando noticias individualmente
   const atualizarNoticia = () => {
     Atualizador((prev) => prev + 1);
