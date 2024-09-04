@@ -5,9 +5,9 @@ function App() {
 
   return (
     <>
-      <Noticia></Noticia>
-      <Noticia></Noticia>
-      <Noticia></Noticia>
+      <Noticia/>
+      <Noticia/>
+      <Noticia/>
     </>
   )
 }
